@@ -1,0 +1,8 @@
+# La lógica PHP no se sirve directamente por HTTP.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

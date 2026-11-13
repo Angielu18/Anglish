@@ -1,0 +1,30 @@
+# Registros y archivos temporales
+logs/*.log
+logs/*.log.*
+*.tmp
+*.bak
+*.old
+
+# Configuración local sensible (si se usa en el futuro)
+.env
+.env.*
+app/config/config.local.php
+
+# Herramientas del sistema
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Android / Gradle (el APK se regenera)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/captures/
+
+# Dependencias locales de herramientas
+node_modules/
+/vendor/

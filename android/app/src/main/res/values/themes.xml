@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Anglish" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/anglish_teal</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/progress_track</item>
+        <item name="colorOnPrimaryContainer">@color/anglish_navy</item>
+        <item name="colorSecondary">@color/anglish_amber</item>
+        <item name="colorOnSecondary">@color/anglish_navy</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/anglish_bg</item>
+        <item name="android:windowBackground">@color/anglish_bg</item>
+        <item name="android:statusBarColor">@color/anglish_navy</item>
+        <item name="android:navigationBarColor">@color/anglish_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+</resources>

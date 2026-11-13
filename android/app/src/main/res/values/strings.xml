@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Anglish</string>
+    <string name="dashboard_title">Mi panel</string>
+
+    <!-- Encabezado -->
+    <string name="dashboard_greeting">Hola, %1$s</string>
+    <string name="level_format">Nivel %1$s</string>
+    <string name="professor_format">Prof. %1$s</string>
+    <string name="no_active_course">Sin matrícula activa</string>
+    <string name="no_professor">Sin profesor asignado</string>
+    <string name="no_schedule">Horario por confirmar</string>
+
+    <!-- Progreso y estadísticas -->
+    <string name="progress_title">Progreso académico</string>
+    <plurals name="progress_detail_format">
+        <item quantity="one">Promedio %1$.2f · %2$d pendiente</item>
+        <item quantity="other">Promedio %1$.2f · %2$d pendientes</item>
+    </plurals>
+    <string name="progress_hint">Avance según evaluaciones calificadas</string>
+    <string name="percentage_format">%1$d%%</string>
+    <string name="average_format">%1$.2f</string>
+    <string name="attendance_format">%1$.1f%%</string>
+    <string name="stat_average">Promedio</string>
+    <string name="stat_attendance">Asistencia</string>
+    <string name="stat_pending">Pendientes</string>
+
+    <!-- Alertas -->
+    <string name="alerts_title">Centro de alertas</string>
+    <string name="alerts_subtitle">Evaluaciones y entregas próximas</string>
+    <string name="empty_alerts">No tienes evaluaciones pendientes. ¡Buen trabajo!</string>
+    <string name="evaluation_meta_format">%1$s · %2$d%% del curso</string>
+    <string name="evaluation_content_description">%1$s. Urgencia: %2$s</string>
+    <string name="urgency_overdue">Vencida</string>
+    <string name="urgency_today">≤ 24 h</string>
+    <string name="urgency_soon">≤ 48 h</string>
+    <string name="urgency_normal">Programada</string>
+
+    <!-- Asistencia -->
+    <string name="attendance_title">Asistencia reciente</string>
+    <string name="attendance_subtitle">Últimas sesiones registradas</string>
+    <string name="empty_attendance">Aún no hay asistencias registradas.</string>
+    <string name="attendance_date_format">%1$s · %2$s</string>
+    <string name="attendance_present">Presente</string>
+    <string name="attendance_late">Retardo</string>
+    <string name="attendance_absent">Inasistencia</string>
+    <string name="attendance_excused">Excusa</string>
+
+    <!-- Estados de carga -->
+    <string name="loading_dashboard">Cargando tu panel…</string>
+    <string name="error_title">No pudimos cargar tu información</string>
+    <string name="error_generic">Revisa tu conexión e inténtalo de nuevo.</string>
+    <string name="retry">Reintentar</string>
+    <string name="offline_mode">Modo offline · mostrando datos locales</string>
+    <string name="sync_hint">Desliza hacia abajo para actualizar</string>
+
+    <!-- Eventos -->
+    <string name="event_offline">Sin conexión: mostrando datos guardados.</string>
+    <string name="event_alert_read">Alerta marcada como leída.</string>
+    <string name="event_local_data_error">No se pudieron preparar los datos locales.</string>
+
+    <!-- Fechas -->
+    <string name="date_today">Hoy · %1$s</string>
+    <string name="date_tomorrow">Mañana · %1$s</string>
+    <string name="date_label_today">Hoy</string>
+    <string name="date_label_yesterday">Ayer</string>
+
+    <!-- Tipos de evaluación -->
+    <string name="type_quiz">Quiz</string>
+    <string name="type_workshop">Taller</string>
+    <string name="type_midterm">Parcial</string>
+    <string name="type_project">Proyecto</string>
+    <string name="type_final_exam">Examen final</string>
+
+    <!-- Login -->
+    <string name="login_title">Bienvenido a Anglish</string>
+    <string name="login_subtitle">Academia de Inglés · Accede a tu plataforma académica</string>
+    <string name="email_hint">Correo institucional</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="demo_accounts_title">O accede rápidamente con cuentas demo:</string>
+    <string name="demo_student_btn">👩‍🎓 Estudiante · Sara Gómez</string>
+    <string name="demo_professor_btn">👨‍🏫 Docente · Laura Méndez</string>
+    <string name="error_empty_credentials">Ingresa tu correo y contraseña</string>
+    <string name="error_invalid_credentials">Credenciales incorrectas</string>
+    <string name="logout">Cerrar sesión</string>
+
+    <!-- Módulo Asistencia Detallada -->
+    <string name="asistencia_screen_title">Registro de Asistencia</string>
+    <string name="filter_all">Todas</string>
+    <string name="filter_present">Presentes</string>
+    <string name="filter_late">Tardes</string>
+    <string name="filter_absent">Inasistencias</string>
+    <string name="filter_excused">Excusas</string>
+    <string name="summary_classes">Total Clases</string>
+
+    <!-- Módulo Evaluaciones Detallada -->
+    <string name="evaluaciones_screen_title">Calificaciones y Tareas</string>
+    <string name="filter_pending">Pendientes</string>
+    <string name="filter_graded">Calificadas</string>
+    <string name="academic_status_good">¡Excelente rendimiento académico! (≥ 3.0)</string>
+    <string name="academic_status_risk">Atención: Rendimiento bajo (&lt; 3.0), ponte al día</string>
+    <string name="grade_format">Nota: %1$.1f / 5.0</string>
+    <string name="weight_format">Ponderación: %1$d%%</string>
+
+    <!-- Módulo Profesor -->
+    <string name="professor_dashboard_title">Panel del Docente</string>
+    <string name="professor_courses_title">Mis Cursos Asignados</string>
+    <string name="assigned_courses_title">Mis Cursos Asignados</string>
+    <string name="professor_sessions_title">Próximas Sesiones de Clase</string>
+    <string name="stat_courses">Cursos</string>
+    <string name="stat_students">Alumnos</string>
+    <string name="stat_attendance_avg">Asist. Promedio</string>
+
+    <!-- Accesibilidad -->
+    <string name="cd_school">Curso</string>
+    <string name="cd_clock">Horario</string>
+    <string name="cd_average">Promedio académico</string>
+    <string name="cd_attendance">Porcentaje de asistencia</string>
+    <string name="cd_pending">Actividades pendientes</string>
+    <string name="cd_error">Error</string>
+    <string name="cd_check">Alerta leída</string>
+</resources>

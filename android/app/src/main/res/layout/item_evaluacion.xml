@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:rippleColor="@color/progress_track"
+    app:strokeColor="@color/outline"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp">
+
+        <View
+            android:id="@+id/viewUrgencia"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:background="@color/danger"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/chipUrgencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip"
+            android:paddingStart="8dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="≤ 24 h" />
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/chipUrgencia"
+            app:layout_constraintStart_toEndOf="@id/viewUrgencia"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Parcial — Unidades 1 y 2" />
+
+        <TextView
+            android:id="@+id/tvCurso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/viewUrgencia"
+            app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+            tools:text="Inglés A1 — Fundamentos" />
+
+        <TextView
+            android:id="@+id/tvMeta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/viewUrgencia"
+            app:layout_constraintTop_toBottomOf="@id/tvCurso"
+            tools:text="Parcial · 25% del curso" />
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            app:drawableStartCompat="@drawable/ic_access_time"
+            android:drawablePadding="4dp"
+            app:drawableTint="@color/text_secondary"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imgLeida"
+            app:layout_constraintStart_toEndOf="@id/viewUrgencia"
+            app:layout_constraintTop_toBottomOf="@id/tvMeta"
+            tools:text="Hoy · 18:00" />
+
+        <ImageView
+            android:id="@+id/imgLeida"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@string/cd_check"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tvFecha"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvFecha"
+            app:tint="@color/success"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

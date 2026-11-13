@@ -1,0 +1,433 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "68fc51efd1876315c4aecfd6e38ca6e5",
+    "entities": [
+      {
+        "tableName": "usuarios",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nombres` TEXT NOT NULL, `apellidos` TEXT NOT NULL, `email` TEXT NOT NULL, `rol` TEXT NOT NULL, `nivelActual` TEXT NOT NULL, `avatarUrl` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombres",
+            "columnName": "nombres",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "apellidos",
+            "columnName": "apellidos",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rol",
+            "columnName": "rol",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nivelActual",
+            "columnName": "nivelActual",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avatarUrl",
+            "columnName": "avatarUrl",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_usuarios_email",
+            "unique": true,
+            "columnNames": [
+              "email"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_usuarios_email` ON `${TABLE_NAME}` (`email`)"
+          }
+        ]
+      },
+      {
+        "tableName": "cursos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `codigo` TEXT NOT NULL, `nombre` TEXT NOT NULL, `nivel` TEXT NOT NULL, `profesor` TEXT NOT NULL, `aula` TEXT NOT NULL, `horario` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "codigo",
+            "columnName": "codigo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nivel",
+            "columnName": "nivel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "profesor",
+            "columnName": "profesor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "aula",
+            "columnName": "aula",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "horario",
+            "columnName": "horario",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "matriculas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `estudianteId` INTEGER NOT NULL, `cursoId` INTEGER NOT NULL, `activa` INTEGER NOT NULL, `progresoPorcentaje` REAL NOT NULL, `promedio` REAL NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`estudianteId`) REFERENCES `usuarios`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`cursoId`) REFERENCES `cursos`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estudianteId",
+            "columnName": "estudianteId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cursoId",
+            "columnName": "cursoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activa",
+            "columnName": "activa",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "progresoPorcentaje",
+            "columnName": "progresoPorcentaje",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "promedio",
+            "columnName": "promedio",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_matriculas_estudianteId",
+            "unique": false,
+            "columnNames": [
+              "estudianteId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_matriculas_estudianteId` ON `${TABLE_NAME}` (`estudianteId`)"
+          },
+          {
+            "name": "index_matriculas_cursoId",
+            "unique": false,
+            "columnNames": [
+              "cursoId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_matriculas_cursoId` ON `${TABLE_NAME}` (`cursoId`)"
+          },
+          {
+            "name": "index_matriculas_estudianteId_activa",
+            "unique": false,
+            "columnNames": [
+              "estudianteId",
+              "activa"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_matriculas_estudianteId_activa` ON `${TABLE_NAME}` (`estudianteId`, `activa`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "usuarios",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "estudianteId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "cursos",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cursoId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "asistencias",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `matriculaId` INTEGER NOT NULL, `fechaMillis` INTEGER NOT NULL, `estado` TEXT NOT NULL, `tema` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`matriculaId`) REFERENCES `matriculas`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "matriculaId",
+            "columnName": "matriculaId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaMillis",
+            "columnName": "fechaMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tema",
+            "columnName": "tema",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_asistencias_matriculaId",
+            "unique": false,
+            "columnNames": [
+              "matriculaId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_asistencias_matriculaId` ON `${TABLE_NAME}` (`matriculaId`)"
+          },
+          {
+            "name": "index_asistencias_fechaMillis",
+            "unique": false,
+            "columnNames": [
+              "fechaMillis"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_asistencias_fechaMillis` ON `${TABLE_NAME}` (`fechaMillis`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "matriculas",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "matriculaId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "evaluaciones",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `estudianteId` INTEGER NOT NULL, `cursoId` INTEGER NOT NULL, `titulo` TEXT NOT NULL, `tipo` TEXT NOT NULL, `fechaEntregaMillis` INTEGER NOT NULL, `porcentaje` REAL NOT NULL, `nota` REAL, `leida` INTEGER NOT NULL, `completada` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`estudianteId`) REFERENCES `usuarios`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`cursoId`) REFERENCES `cursos`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estudianteId",
+            "columnName": "estudianteId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cursoId",
+            "columnName": "cursoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "titulo",
+            "columnName": "titulo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipo",
+            "columnName": "tipo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaEntregaMillis",
+            "columnName": "fechaEntregaMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "porcentaje",
+            "columnName": "porcentaje",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nota",
+            "columnName": "nota",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "leida",
+            "columnName": "leida",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "completada",
+            "columnName": "completada",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_evaluaciones_estudianteId",
+            "unique": false,
+            "columnNames": [
+              "estudianteId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_evaluaciones_estudianteId` ON `${TABLE_NAME}` (`estudianteId`)"
+          },
+          {
+            "name": "index_evaluaciones_cursoId",
+            "unique": false,
+            "columnNames": [
+              "cursoId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_evaluaciones_cursoId` ON `${TABLE_NAME}` (`cursoId`)"
+          },
+          {
+            "name": "index_evaluaciones_estudianteId_completada",
+            "unique": false,
+            "columnNames": [
+              "estudianteId",
+              "completada"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_evaluaciones_estudianteId_completada` ON `${TABLE_NAME}` (`estudianteId`, `completada`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "usuarios",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "estudianteId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "cursos",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cursoId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '68fc51efd1876315c4aecfd6e38ca6e5')"
+    ]
+  }
+}

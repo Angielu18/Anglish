@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.anglish.app.ui.login.LoginFragment"
+        android:label="@string/login_title">
+        <action
+            android:id="@+id/action_login_to_dashboard"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_to_profesorDashboard"
+            app:destination="@id/profesorDashboardFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.anglish.app.ui.dashboard.DashboardFragment"
+        android:label="@string/dashboard_title">
+        <action
+            android:id="@+id/action_dashboard_to_asistencia"
+            app:destination="@id/asistenciaFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_evaluaciones"
+            app:destination="@id/evaluacionesFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profesorDashboardFragment"
+        android:name="com.anglish.app.ui.profesor.ProfesorDashboardFragment"
+        android:label="@string/professor_dashboard_title">
+        <action
+            android:id="@+id/action_profesorDashboard_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/asistenciaFragment"
+        android:name="com.anglish.app.ui.asistencia.AsistenciaFragment"
+        android:label="@string/asistencia_screen_title" />
+
+    <fragment
+        android:id="@+id/evaluacionesFragment"
+        android:name="com.anglish.app.ui.evaluaciones.EvaluacionesFragment"
+        android:label="@string/evaluaciones_screen_title" />
+
+</navigation>
