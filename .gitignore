@@ -9,6 +9,7 @@ logs/*.log.*
 .env
 .env.*
 app/config/config.local.php
+app/config/database.local.php
 
 # Herramientas del sistema
 .DS_Store

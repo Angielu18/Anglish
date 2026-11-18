@@ -1,3 +1,4 @@
+
 # Anglish — Documentación del proyecto
 
 **Sistema:** Anglish — Academia de inglés
